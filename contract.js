@@ -30,7 +30,13 @@ The `piggybankContract` is compiled from:
   }
 */
 
-const forwarderOrigin = 'http://localhost:9010';
+
+const currentUrl = new URL(window.location.href)
+const forwarderOrigin = currentUrl.hostname === 'localhost'
+  ? 'http://localhost:9010'
+  : undefined
+
+//const forwarderOrigin = 'http://localhost:9010';
 
 const initialize = () => {
   //Basic Actions Section
